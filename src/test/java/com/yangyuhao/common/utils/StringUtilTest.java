@@ -5,7 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class StringUtilTest {
-
+	
+	@Test
+	public void testGetPlaceholderValue(){
+		String str = "http://news.cnstock.com/news,yw-201908-4413224.htm";
+		String placeholderValue = StringUtil.getPlaceholderValue(str, "[0-9]+(?=[^0-9]*$)");
+		System.out.println(placeholderValue);
+	}
+	
 	@Test
 	public void testHasLength() {
 		boolean hasLength = StringUtil.hasLength(" ");
