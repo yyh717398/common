@@ -44,22 +44,32 @@ public class StreamUtil {
 	 * @return: String
 	 */
 	public static String readTextfile(InputStream src) {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(src));
-		String str = null;
-		StringBuffer buffer = new StringBuffer();
+		byte[] b = new byte[1024];
+		int len;
 		try {
-			while ((str = reader.readLine()) != null) {
-				buffer.append(str + "\n");
+			while((len=src.read(b))!=-1){
+				return new String(b, 0, len);
+				
+				
 			}
-		} catch (Exception e) {
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			closeAll(src, reader);
 		}
-		return buffer.toString();
+		return null;
+		
+		
 	}
-
+	
+	
+	/**
+	 * 
+	 * @Title: readTextFile 
+	 * @Description: 传入文本对象
+	 * @param file
+	 * @return
+	 * @return: String
+	 */
 	public static String readTextFile(File file) {
 		try {
 			FileInputStream fis = new FileInputStream(file);

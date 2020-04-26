@@ -28,6 +28,7 @@ public class DateUtil {
 		if(t1>=t2){
 			throw new RuntimeException("时间格式不正确");
 		}
+		
 		long t = (long)(Math.random()*(t2-t1)+t1);
 		return new Date(t);
 		
@@ -88,6 +89,7 @@ public class DateUtil {
 	public static int getAgeByBirthday(Date birthday){
 		//获取当前系统时间年份
 		Calendar c = Calendar.getInstance();
+		
 		int nowYear = c.get(Calendar.YEAR);
 			//月份
 		int nowMonth = c.get(Calendar.MONTH);
